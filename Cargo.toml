@@ -1,0 +1,27 @@
+[package]
+name = "talmobil"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tal Kfir"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = { version = "0.5.0-rc.1", features = [ "tls", "json" ] }
+rocket_oauth2 = { version = "0.5.0-rc.1" }
+anyhow = "1.0"
+hyper = "0.10"
+hyper-sync-rustls = { version = ">=0.3.0-rc.4, <0.3.0-rc.18" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tera = "1.15.0"
+rocket-client-addr = "0.5.0"
+mongodb = "2.1.0"
+bson = { version = "2.2.0", features=["chrono-0_4"] }
+futures = "0.3"
+confy = "0.4.0"
+rocket-multipart-form-data = "0.10.2"
+chrono = { version = "0.4.19" }
+rand = "0.8.5"
+log = "0.4"
+fern = "0.6"

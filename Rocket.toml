@@ -1,0 +1,17 @@
+[global]
+port = 443
+address = "0.0.0.0"
+secret_key="2d5119b15a2846a7762b111403894695da176f6dd042adf189001d7158f15fe5"
+
+[global.tls]
+certs = "./tls/mei.pem-chain"
+key = "./tls/enckey.pem"
+
+[global.oauth.google]
+provider = "Google"
+client_id = "228938634768-g19jorlkr5e8uit30rj4prku0vpveoht.apps.googleusercontent.com"
+client_secret = "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"
+redirect_uri = "https://pinkhas.hopto.org/auth/google"
+
+[global.talmobil]
+home = "home.html"
