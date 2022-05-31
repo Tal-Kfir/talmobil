@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/add-car.css">
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" {{ checkBox }}>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		<div class="grid-container">
+			<div class="item1">
+				<a href="/home">
+					<div class="grid-head-text"> ❮ </div>
+				</a>
+			</div>
+			<div class="item2">
+				<div class= "grid-head-text">Add Car</div>
+			</div>
+			<form class="grid-item">
+				<span>Details</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="model" minlength="4" type="text" placeholder="   Model" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="year" type="number" min="1890" max="2025" placeholder="   Year Made" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="plate" pattern="^[0-9]*$" minlength="5" maxlength="9" type="text" placeholder="   License Plate Number" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="tank-cap" min="10" max="100" type="number" placeholder="   Tank Capacity (liters)" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="cur-fule" min="0" max="100" type="number" placeholder="   Current Fule Amount (%)" required>
+					</div>
+					<div class="inner-grid-item">
+						Is it Electric?
+						<input class ="inner-checkbox" name="is-electric"  type="checkbox">
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+				<span>Users</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-item">
+						<input name="user1" class ="inner-input" type="email" placeholder="   Email (optional)">
+					</div>
+					<div class="inner-grid-item">
+						<input name="user2" class ="inner-input" type="email" placeholder="   Email (optional)">
+					</div>
+					<div class="inner-grid-item">
+						<input name="user3" class ="inner-input" type="email" placeholder="   Email (optional)">
+					</div>
+					<div class="inner-grid-item">
+						<input name="user4" class ="inner-input" type="email" placeholder="   Email (optional)">
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+				<span>Last Checkups</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-subject">
+						<input class ="inner-input" type="text" value="Refule" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="  Date" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="date" name="last-fule-date" min="{{ minDay }}" max="{{ today }}"  required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="   Description (optional)" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="last-fule-description" type="text">
+					</div>
+					
+					<br>
+					<!---->
+					<div class="inner-grid-subject">
+						<input class ="inner-input" type="text" value="Oils Change" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="  Date" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="last-oil-date"  min="{{ minDay }}" max="{{ today }}" type="date" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="   Description (optional)" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="last-oil-description" type="text">
+					</div>
+					
+					<br>
+					<!---->
+					<div class="inner-grid-subject">
+						<input class ="inner-input" type="text" value="   Cleaning" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="  Date" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="date" name="last-clean-date" min="{{ minDay }}" max="{{ today }}" required>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" type="text" value="   Description (optional)" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="last-clean-description" type="text">
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<div class="item4">
+					<div class= "grid-contents">
+						<input type="button" id="upload" hidden/>
+						<label for="upload">
+							<br>
+							<!-- actual upload which is hidden -->
+							<input name="picture" type="file" accept=".jpg" id="actual-btn" hidden required/>
+	
+							<!-- our custom upload button -->
+							<label for="actual-btn">
+								<img src="add-car.png">
+							</label>
+	
+							<!-- name of file chosen -->
+							<h3 id="file-chosen">Choose a Picture (JPG)</h3>
+						</label>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<div class="inner-grid-subject grid-submit">
+					<input class ="grid-submit" type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</body>
+
+	
+	<script src="fileButton.js"></script>
+</html>

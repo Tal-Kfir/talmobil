@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/car-services.css">
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" {{ checkBox }}>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		<div class="grid-container">
+			<div class="item1">
+				<a href="/view/{{ carID }}">
+					<div class="grid-head-text"> ❮ </div>
+				</a>
+			</div>
+			<div class="item2">
+				<div class= "grid-head-text">Car Services</div>
+			</div>
+			<div class="item3">
+				<a href="/overview/{{ carID }}">  <!-- Pew Pew -->
+					<button class="button">Overview</button>
+				</a>
+			</div>
+
+			<div class="inner-grid-container">
+				{{ gridEvents }}
+			</div>
+		</div>
+	</body>
+
+	
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/car-view.css">
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" {{ checkBox }}>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		<div class="grid-container">
+			<div class="item1">
+				<a href="/home">
+					<div class="grid-head-text"> ❮ </div>
+				</a>
+			</div>
+			<div class="item2">
+				<div class= "grid-head-text">Car View</div>
+			</div>
+			<form class="grid-item">
+				<span>Options</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-item">
+						<a href = "/calendar/{{ carID }}">
+							<input class ="inner-input" type="button" value="Calendar">
+						</a>
+					</div>
+					<div class="inner-grid-item">
+						<a href = "/drive/{{ carID }}">
+							<input class ="inner-input" type="button" value="Drive">
+						</a>
+					</div>
+					<div class="inner-grid-item">
+						<a href = "/locations/{{ carID }}">
+							<input class ="inner-input" type="button" value="Locations">
+						</a>
+					</div>
+					<div class="inner-grid-item">
+						<a href = "/services/{{ carID }}">
+							<input class ="inner-input" type="button" value="Payments and Services">
+						</a>
+					</div>
+					<div class="inner-grid-item">
+						<a href = "/edit/{{ carID }}">
+							<input class ="inner-input" type="button" value="Car Specs and Settings">
+						</a>
+					</div>
+				</div>
+			</form>
+			<br>
+			<br>
+			<br>
+			<div class="item4">
+				<div class= "grid-contents">
+					<input type="" id="upload" hidden/>
+					<label for="upload">
+						<br>
+						<!-- our custom upload button -->
+						<img src="/{{ carID }}.jpg">
+
+						<!-- name of file chosen -->
+						<div class="upload-container">
+							<h4>Fule Tank</h4>
+							<div class="progress">
+								<div class="progress__fill"></div>
+								<div class="progress__text">{{ fuleBar }}%</div>
+							</div>
+						  </div>
+					</label>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<footer>
+		<script src = "/carViewBar.js"></script>
+	</footer>
+</html>

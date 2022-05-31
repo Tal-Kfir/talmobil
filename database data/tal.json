@@ -1,0 +1,11 @@
+/** 
+* Paste one or more documents here
+*/
+{
+    "_id": {
+        "$oid": "623d6b119f0a99dd3506dac8"
+    }
+	  "userID": "0",
+    "username": "Tal",
+    "cars": [{}]    
+}

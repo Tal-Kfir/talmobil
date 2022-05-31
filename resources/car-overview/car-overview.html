@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/car-overview.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" {{ checkBox }}>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		<div class="grid-container">
+			<div class="item1">
+				<a href="/services/{{ carID }}">
+					<div class="grid-head-text"> ❮ </div>
+				</a>
+			</div>
+			<div class="item2">
+				<div class= "grid-head-text">Car Overview</div>
+			</div>
+			<div class="chart-div">
+				<canvas id="myChart"></canvas>
+
+				<script id="chartScript">
+				var xValues = [{{ users}}];
+				var yValues = [{{ money }}];
+				var barColors = [
+				{{ colors }}
+				];
+
+				new Chart("myChart", {
+				type: "pie",
+				data: {
+					labels: xValues,
+					datasets: [{
+					backgroundColor: barColors,
+					data: yValues
+					}]
+				},
+				options: {
+					title: {
+					display: true,
+					text: "Last Month's Money Distribution"
+					}
+				}
+				});
+				</script>
+			</div>
+		</div>
+	</body>
+</html>

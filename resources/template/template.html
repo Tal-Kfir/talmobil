@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./template.css">
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" checked>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		
+	</body>
+</html>

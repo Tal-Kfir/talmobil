@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="/toggleInvites.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/edit-car.css">
+		<title>Welcome</title>
+
+	</head>
+
+	<header>
+		<nav id = "header">
+			<div class="dropdown">
+				<input type="checkbox" id="menu" value="" name="menu-box">
+				<label for="menu" data-toggle="dropdown">Setting</label>
+				<ul>
+					<li><a href="/logout">Log Out</a></li>
+					<li><a href="/home">Home</a></li>
+					<li>
+						Allow Invites
+						<br>
+						<label class="switch">
+						<input type="checkbox" onclick="toggleInvites()" {{ checkBox }}>
+						<span class="slider round"></span>
+					  </label>
+					</li>
+				</ul>
+			</div>
+
+			<h2>Welcome, {{ name }}!</h2>
+		</nav>
+	</header>
+	
+	<body>
+		<div class="grid-container">
+			<div class="item1">
+				<a href="/view/{{ carID }}">
+					<div class="grid-head-text"> ❮ </div>
+				</a>
+			</div>
+			<div class="item2">
+				<div class= "grid-head-text">Edit Car</div>
+			</div>
+			<form class="grid-item">
+				<span>Details</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="model" type="text" value="   {{ model }}" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="year" value="   {{ year }}" disabled>
+					</div>
+					<div class="inner-grid-item">
+						<input class ="inner-input" name="plate" type="text" value="   {{ plate }}" disabled>
+					</div>
+					<div class="inner-grid-item">
+						Is it Electric?
+						<input class ="inner-checkbox" name="is-electric"  type="checkbox" disabled {{ electric }}>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+				<span>Users</span>
+				<div class="inner-grid-container">
+					<div class="inner-grid-item">
+						<input name="user1" class ="inner-input" type="email" value="{{ user1 }}" {{ owner }}>
+					</div>
+					<div class="inner-grid-item">
+						<input name="user2" class ="inner-input" type="email" value="{{ user2 }}" {{ owner }}>
+					</div>
+					<div class="inner-grid-item">
+						<input name="user3" class ="inner-input" type="email" value="{{ user3 }}" {{ owner }}>
+					</div>
+					<div class="inner-grid-item">
+						<input name="user4" class ="inner-input" type="email" value="{{ user4 }}" {{ owner }}>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<br>
+
+				<div class="item4">
+					<div class= "grid-contents">
+						<input type="" id="upload" hidden/>
+						<label for="upload">
+							<br>
+							<!-- actual upload which is hidden -->
+							<input name="picture" type="" accept=".jpg" id="actual-btn" hidden disabled/>
+	
+							<!-- our custom upload button -->
+							<label for="actual-btn">
+								<img src="/{{ carID }}.jpg">
+							</label>
+						</label>
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="inner-grid-subject grid-submit">
+					<input class ="grid-submit" type="submit" value="Submit" {{ owner}}>
+				</div>
+
+				<br>
+				<br>
+
+				<div class="inner-grid-subject grid-submit">
+					<input class ="grid-submit" type="button" onclick="deleteCar()" value="Delete or Leave Car">
+				</div>
+			</form>
+		</div>
+	</body>
+
+	
+	<script src="/deleteCar.js"></script>
+</html>

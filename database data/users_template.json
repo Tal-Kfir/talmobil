@@ -1,0 +1,40 @@
+{
+	"userID": "0",
+    "username": "Tal",
+    "cars": []
+}
+
+
+{
+  $jsonSchema:   {
+    "bsonType": "object",
+    
+    "required": [
+      'userID',
+      'username',
+      'cars'
+      ],
+    
+    
+    "properties": {
+      "userID": {
+        "bsonType": 'string'
+      },
+      
+      "username": {
+        "bsonType": 'string'
+      },
+      
+      "cars":  {
+        "bsonType": "array",
+        "maxItems": 5,
+        "minItems": 0,
+        "uniqueItems": true,
+        "items" : {
+          "bsonType": "objectId"
+        }
+      }
+      
+    }
+  }
+}

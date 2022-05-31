@@ -1,0 +1,102 @@
+/* PC / TV */
+@media (orientation: landscape) {
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -35%);
+            transform: translate(-50%, -35%);
+  }
+}
+
+@media (orientation: portrait) {
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -35%);
+            transform: translate(-50%, -35%);
+  }
+}
+
+hr {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.login-button {
+  height: 100%;
+  width: 100%;
+}
+
+/* CSS */
+.button-4 {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.4);
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+          box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 6px 16px;
+  position: relative;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+.button-4:hover {
+  background-color: rgba(188, 188, 188, 0.4);
+  text-decoration: none;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+}
+
+.button-4:disabled {
+  background-color: #FAFBFC;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.button-4:active {
+  background-color: #EDEFF2;
+  -webkit-box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+          box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  -webkit-transition: none 0s;
+  transition: none 0s;
+}
+
+.button-4:focus {
+  outline: 1px transparent;
+}
+
+.button-4:before {
+  display: none;
+}
+
+.button-4:-webkit-details-marker {
+  display: none;
+}
+/*# sourceMappingURL=index_styles.css.map */
